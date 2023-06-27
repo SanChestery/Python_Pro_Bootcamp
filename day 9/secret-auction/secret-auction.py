@@ -3,12 +3,12 @@ from os import system
 
 def new_bidder():
     name = input("What is your name?: ")
-    bid = input("What is your bid?: $")
+    bid = int(input("What is your bid?: $"))
 
     bids[name] = bid
 
 def winner():
-    highest_bid = ""
+    highest_bid = 0
     winner_name = ""
     for bidder in bids:
         bid_amount = bids[bidder]
@@ -30,5 +30,4 @@ while not finished:
     system('cls')
     if other == "no":
         winner()
-        print(bids)
         finished = True
