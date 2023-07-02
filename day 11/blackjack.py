@@ -14,7 +14,10 @@ def show_cards(score_player, cards_player, cards_computer):
     print(f"Your cards: {cards_player}, current score: {score_player}")
     print(f"Computer's first card: {cards_computer[0]}")
 
-def check_win(score_player, cards_player, score_computer, cards_computer):
+def check_win(cards_player, score_computer, cards_computer):
+    score_player = 0
+    for card in cards_player:
+        score_player += card
     print(f"Your final cards: {cards_player}, final score: {score_player}")
     print(f"Computer's final cards: {cards_computer}, Computer's score: {score_computer}")
     if score_player == 21 or (score_player < 21 and score_player > score_computer):
@@ -54,7 +57,7 @@ def play():
         if want_another_card == "y":
             cards_player.append(deal_card())
         else:
-            check_win(score_player, cards_player, score_computer, cards_computer)
+            check_win(cards_player, score_computer, cards_computer)
             cards_not_finished = False
               
 
