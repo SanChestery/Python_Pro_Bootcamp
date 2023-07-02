@@ -4,15 +4,18 @@ from os import system
 import random
 
 not_finished = True
-counter = 0
+score = 0
+
+def new_comparer_B(comparer_A): 
+    comparer_same = True
+    while comparer_same:
+        comparer_B = random.choice(data)
+        if comparer_A != comparer_B:
+            comparer_same = False
+    return comparer_B
 
 comparer_A = random.choice(data)
-comparer_same = True
-while comparer_same:
-    comparer_B = random.choice(data)
-    if comparer_A != comparer_B:
-        comparer_same = False
-
+comparer_B = new_comparer_B(comparer_A)
 system('cls')
 print(logo)
 
@@ -43,18 +46,15 @@ while not_finished:
         print("They are the same!")
 
     if answer == more: 
-        counter += 1
+        score += 1
         system('cls')
         print(logo)
-        print(f"You are right! Current score: {counter}.")
+        print(f"You are right! Current score: {score}.")
         comparer_A = more
-        comparer_same = True
-        while comparer_same:
-            comparer_B = random.choice(data)
-            if comparer_A != comparer_B:
-                comparer_same = False
+        comparer_B = new_comparer_B(comparer_A)
     else: 
-        print(f"Sorry, that's wrong. Final score: {counter}")
+        system('cls')
+        print(f"Sorry, that's wrong. Final score: {score}")
         not_finished = False
 
 
