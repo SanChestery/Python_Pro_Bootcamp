@@ -25,7 +25,6 @@ while not_finished:
             continue
 
         ''' Check if the resources are enough '''
-        if coffee_machine.is_resource_sufficient(drink):
-            if money_machine.make_payment(drink.cost):
+        if coffee_machine.is_resource_sufficient(drink) and money_machine.make_payment(drink.cost):
                 coffee_machine.make_coffee(drink)
 
