@@ -1,6 +1,6 @@
 import turtle
 import pandas
-import csv
+
 
 sc = turtle.Screen()
 sc.title("U.S. States Game")
