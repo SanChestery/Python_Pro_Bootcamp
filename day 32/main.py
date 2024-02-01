@@ -5,7 +5,7 @@ import os
 import random
 
 
-def send_email(person, body):
+def send_email(person, body, receiver):
     # Email Params
     my_email = "NOT_MY_EMAIL@gmail.com"
     pw = "NOT_MY_PASSWORD"
@@ -16,7 +16,7 @@ def send_email(person, body):
         connection.login(user=my_email, password=pw)
         connection.sendmail(
             from_addr=my_email,
-            to_addrs="santschiy@gmail.com",
+            to_addrs=receiver,
             msg=f"Subject:Happy Birthday {person}!\n\n{body}")
 
 
@@ -31,7 +31,7 @@ for index, row in df.iterrows():
         with open(f"birthday-wisher-extrahard-start/letter_templates/{chosen_letter}", "r") as letter:
             content = letter.read()
             content = content.replace("[NAME]", row['name'])
-        send_email(row['name'], content)
+        send_email(row['name'], content, row['email'])
 
 
 
